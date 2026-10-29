@@ -1,0 +1,406 @@
+<!doctype html>
+<html lang="uz-Cyrl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light">
+<title>Toshkent Meat Solutions — интеграциялашган гўшт кластери</title>
+<meta name="description" content="Тошкент вилоятида 427,56 гектарда: экинзор, Симментал зотли наслли ферма, кушхона ва 3 000 тонналик музлатгич. Чизмалар, суратлар ва видео.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>:root{
+  --paper:#eef0ec; --surface:#ffffff; --ink:#23292c; --muted:#56605b; --line:#cfd5ce;
+  --field:#2f5d46; --field-ink:#ffffff; --wheat:#b88a2c; --wheat-soft:#e9d7a6; --wood:#a86f3e;
+  --shade:rgba(20,26,24,.72); --zone:#e3e9e1;
+  color-scheme:light;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 72px);scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:"Montserrat","Golos Text","Segoe UI",system-ui,-apple-system,Roboto,Arial,sans-serif;
+  font-size:1.0625rem;line-height:1.6;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--paper)}
+img{max-width:100%;display:block}
+a{color:var(--field)}
+a:focus-visible,button:focus-visible{outline:3px solid var(--wheat);outline-offset:3px;border-radius:6px}
+.skip{position:absolute;left:-999px;top:8px;background:var(--surface);padding:8px 14px;z-index:99}
+.skip:focus{left:12px}
+
+/* header */
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;display:flex;align-items:center;gap:28px;
+  padding:14px clamp(16px,4vw,48px);background:color-mix(in srgb,var(--paper) 92%,transparent);
+  backdrop-filter:saturate(1.2) blur(10px);-webkit-backdrop-filter:saturate(1.2) blur(10px);border-bottom:1px solid var(--line)}
+.brand{display:flex;align-items:center;gap:10px;font-weight:800;color:var(--ink);text-decoration:none;white-space:nowrap;letter-spacing:-.01em}
+.mark{width:22px;height:22px;border-radius:50%;background:conic-gradient(var(--field) 0 75%,var(--wheat) 75% 100%);flex:none}
+.top nav{overflow-x:auto;scrollbar-width:none;margin-left:auto}
+.top nav::-webkit-scrollbar{display:none}
+.top ul{display:flex;gap:4px;list-style:none;margin:0;padding:0}
+.top nav a{display:block;padding:7px 12px;border-radius:999px;color:var(--muted);text-decoration:none;font-weight:600;font-size:.88rem;white-space:nowrap}
+.top nav a:hover{color:var(--ink)}
+.top nav a.on{background:var(--field);color:var(--field-ink)}
+
+/* hero */
+.hero{position:relative;min-height:min(86vh,860px);display:grid;align-items:end;overflow:hidden;background:#1d2522}
+.hero-media{position:absolute;inset:0}
+.hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .9s ease}
+.hero-img.on{opacity:1}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(10,14,12,.82) 0%,rgba(10,14,12,.5) 42%,rgba(10,14,12,.08) 72%),linear-gradient(180deg,rgba(10,14,12,0) 45%,rgba(10,14,12,.85) 100%)}
+@media (max-width:760px){.hero::after{background:linear-gradient(180deg,rgba(10,14,12,.55) 0%,rgba(10,14,12,.72) 55%,rgba(10,14,12,.92) 100%)}}
+.hero-text{position:relative;z-index:2;padding:0 clamp(16px,5vw,64px) clamp(28px,6vh,64px);max-width:1180px;color:#fff}
+.hero h1{text-shadow:0 2px 18px rgba(0,0,0,.35);font-size:clamp(2rem,4.8vw,3.9rem);line-height:1.04;font-weight:800;letter-spacing:-.025em;margin:0 0 18px;max-width:15ch}
+.lead{text-shadow:0 1px 10px rgba(0,0,0,.4);font-size:clamp(1rem,1.5vw,1.2rem);max-width:58ch;margin:0 0 28px;color:#e8ece8;font-weight:500}
+.tabs{display:flex;flex-wrap:wrap;gap:10px}
+.tab{appearance:none;border:1px solid rgba(255,255,255,.35);background:rgba(255,255,255,.06);color:#fff;border-radius:14px;
+  padding:12px 18px;text-align:left;cursor:pointer;font:inherit;display:grid;gap:2px;min-width:180px;transition:background .25s,border-color .25s}
+.tab:hover{background:rgba(255,255,255,.14)}
+.tab[aria-selected="true"]{background:#fff;color:#1b2320;border-color:#fff}
+.tn{font-weight:700;font-size:1rem}.ta{font-size:.85rem;opacity:.8}
+.tab-note{margin:16px 0 0;color:#dfe5e0;font-size:.95rem;min-height:1.6em}
+
+/* facts */
+.facts{background:var(--surface);border-bottom:1px solid var(--line)}
+.facts dl{margin:0 auto;max-width:1280px;display:grid;grid-template-columns:repeat(6,1fr);padding:0 clamp(16px,4vw,48px)}
+.facts div{padding:22px 16px 22px 0;border-right:1px solid var(--line);margin-right:16px}
+.facts div:last-child{border-right:0}
+.facts dt{font-size:.82rem;color:var(--muted);font-weight:600}
+.facts dd{margin:4px 0 0;font-size:clamp(1.15rem,1.9vw,1.6rem);font-weight:800;letter-spacing:-.01em}
+@media (max-width:980px){.facts dl{grid-template-columns:repeat(3,1fr)}.facts div:nth-child(3){border-right:0}}
+@media (max-width:560px){.facts dl{grid-template-columns:repeat(2,1fr)}.facts div:nth-child(3){border-right:1px solid var(--line)}.facts div:nth-child(2n){border-right:0}}
+
+/* sections */
+.sec{max-width:1280px;margin:0 auto;padding:clamp(56px,9vw,112px) clamp(16px,4vw,48px) 0}
+.sec-head{max-width:70ch;margin-bottom:36px;position:relative}
+.sec h2{font-size:clamp(1.7rem,3.2vw,2.7rem);line-height:1.12;letter-spacing:-.02em;margin:0 0 14px;font-weight:800}
+.sec-head p{margin:0 0 12px;color:var(--muted)}
+.sec-head .step{position:absolute;left:-72px;top:-14px;font-size:clamp(3rem,6vw,5rem);font-weight:800;line-height:1;
+  color:var(--wheat);opacity:.55;margin:0}
+@media (max-width:1440px){.sec-head .step{position:static;font-size:2.4rem;opacity:1;margin:0 0 4px}}
+.sec h3{font-size:1.15rem;margin:0 0 12px;font-weight:700}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,4vw,56px);margin-bottom:36px}
+.cols.three{grid-template-columns:1fr 1.15fr 1.15fr}
+@media (max-width:900px){.cols,.cols.three{grid-template-columns:1fr}}
+.pts{margin:0;padding-left:1.1em;max-width:62ch}
+.pts li{margin:0 0 10px}
+.pts li::marker{color:var(--wheat)}
+.kv{width:100%;border-collapse:collapse;font-size:.97rem}
+.kv th,.kv td{text-align:left;vertical-align:top;padding:10px 0;border-bottom:1px solid var(--line)}
+.kv th{font-weight:600;color:var(--muted);padding-right:18px;width:46%}
+.kv td{font-weight:600}
+.kv tr:last-child th,.kv tr:last-child td{border-bottom:0}
+.kv.wide th{width:28%}
+.note{font-size:.88rem;color:var(--muted);margin-top:12px}
+
+/* photo grid */
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.grid.two{grid-template-columns:1fr 1fr;margin-top:28px}
+.ph{margin:0;background:var(--surface);border-radius:14px;overflow:hidden;border:1px solid var(--line)}
+.ph.big{grid-column:span 2;grid-row:span 2}
+.ph-btn{all:unset;display:block;cursor:zoom-in;width:100%}
+.ph img{width:100%;aspect-ratio:16/9;object-fit:cover;transition:transform .5s ease}
+.ph.big img{aspect-ratio:auto;height:100%;min-height:100%}
+.ph.big .ph-btn{height:calc(100% - 64px)}
+.ph-btn:hover img{transform:scale(1.03)}
+.ph figcaption{padding:11px 14px 13px;display:grid;gap:2px;font-size:.88rem}
+.ph figcaption strong{font-size:.95rem}
+.ph figcaption span{color:var(--muted)}
+@media (max-width:900px){.grid{grid-template-columns:1fr 1fr}.ph.big{grid-column:span 2;grid-row:auto}.ph.big img{aspect-ratio:16/9;height:auto}.ph.big .ph-btn{height:auto}}
+@media (max-width:560px){.grid,.grid.two{grid-template-columns:1fr}.ph.big{grid-column:auto}}
+
+/* flow diagram */
+.flow-wrap{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:clamp(12px,2.5vw,28px);overflow-x:auto}
+.flow{width:100%;min-width:640px;height:auto;font-family:inherit}
+.flow .zone{fill:var(--zone);stroke:var(--line);stroke-dasharray:6 6}
+.flow .zl{font-size:14px;fill:var(--muted);font-weight:600}
+.flow .node{stroke:var(--line);stroke-width:1.2}
+.flow .n1{fill:#cfe3c4}.flow .n2{fill:#e9d7a6}.flow .n3{fill:#d7e0e6}.flow .ext{fill:var(--surface)}
+.flow .nt{font-size:20px;font-weight:700;fill:#1f2622}.flow .nt.sm{font-size:16px;fill:var(--ink)}
+.flow .ns{font-size:14px;fill:#3e4843}
+.flow .ext ~ .ns{fill:var(--muted)}
+.flow .fl{fill:none;stroke:var(--field);stroke-width:3}
+.flow .fl.dash{stroke:var(--wood);stroke-dasharray:7 6}
+.flow .ah{fill:var(--field)}
+.flow .fv{font-size:13px;fill:var(--ink);font-weight:600}
+.flow .dist{font-size:13px;fill:var(--wheat);font-weight:700}
+
+/* sheets */
+.btn{display:inline-block;background:var(--field);color:var(--field-ink);text-decoration:none;font-weight:700;padding:11px 18px;border-radius:12px}
+.btn:hover{filter:brightness(1.08)}
+.sheets{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+@media (max-width:1000px){.sheets{grid-template-columns:repeat(3,1fr)}}
+@media (max-width:700px){.sheets{grid-template-columns:repeat(2,1fr)}}
+.sheets li{position:relative;background:var(--surface);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.sh-btn{all:unset;display:grid;grid-template-columns:auto 1fr;gap:4px 10px;cursor:zoom-in;width:100%}
+.sh-btn img{grid-column:1/-1;width:100%;aspect-ratio:1.414;object-fit:cover;background:#fff;border-bottom:1px solid var(--line)}
+.sn{grid-row:2;padding:10px 0 12px 12px;font-weight:800;color:var(--wheat);font-size:1.1rem}
+.st{grid-row:2;padding:10px 12px 12px 0;font-size:.85rem;font-weight:600;line-height:1.35}
+.pdf{position:absolute;top:8px;right:8px;background:var(--field);color:var(--field-ink);font-size:.75rem;font-weight:700;padding:4px 9px;border-radius:8px;text-decoration:none}
+
+/* video */
+.vid{border-radius:18px;overflow:hidden;background:#000;border:1px solid var(--line)}
+.vid video{width:100%;display:block;aspect-ratio:16/9;background:#000}
+
+/* footer */
+.foot{max-width:1280px;margin:clamp(56px,9vw,112px) auto 0;padding:28px clamp(16px,4vw,48px) 40px;border-top:1px solid var(--line);color:var(--muted);font-size:.9rem}
+.foot p{max-width:80ch;margin:0 0 8px}
+
+/* lightbox */
+.lb{position:fixed;inset:0;z-index:80;background:rgba(6,9,8,.92);display:grid;grid-template-columns:64px 1fr 64px;align-items:center;
+  padding:calc(env(safe-area-inset-top,0px) + 12px) 8px calc(env(safe-area-inset-bottom,0px) + 12px)}
+.lb[hidden]{display:none}
+.lb figure{grid-column:2;margin:0;display:grid;gap:10px;justify-items:center;max-height:100%}
+.lb img{max-height:calc(100vh - 140px);width:auto;max-width:100%;object-fit:contain;border-radius:8px;background:#fff}
+.lb figcaption{color:#e9ece9;text-align:center;display:grid;gap:2px}
+.lb figcaption span{color:#b8c0bb;font-size:.9rem}
+.lb button{all:unset;box-sizing:border-box;cursor:pointer;color:#fff;font-size:42px;line-height:1;text-align:center;padding:10px;border-radius:10px}
+.lb button:hover{background:rgba(255,255,255,.08)}
+.lb .lb-x{position:absolute;top:calc(env(safe-area-inset-top,0px) + 10px);right:12px;font-size:34px}
+@media (max-width:600px){.lb{grid-template-columns:40px 1fr 40px}.lb button{font-size:32px}}
+</style>
+</head>
+<body>
+<a class="skip" href="#klaster">Асосий мазмунга ўтиш</a>
+<header class="top">
+  <a class="brand" href="#top" aria-label="Бош саҳифа"><span class="mark" aria-hidden="true"></span>Toshkent Meat Solutions</a>
+  <nav aria-label="Бўлимлар"><ul>
+    <li><a href="#klaster">Кластер</a></li><li><a href="#ekinzor">Экинзор</a></li><li><a href="#ferma">Ферма</a></li>
+    <li><a href="#kushxona">Кушхона</a></li><li><a href="#quyosh">Қуёш энергияси</a></li><li><a href="#korsatkichlar">Кўрсаткичлар</a></li>
+    <li><a href="#chizmalar">Чизмалар</a></li><li><a href="#video">Видео</a></li></ul></nav>
+</header>
+
+<main id="top">
+<section class="hero" aria-label="Уч мажмуа">
+  <div class="hero-media"><img class="hero-img" data-c="ekinzor" src="img/P-02.jpg" alt="Саккизта дала" loading="lazy"><img class="hero-img on" data-c="ferma" src="img/P-05.jpg" alt="Наслли ферма" ><img class="hero-img" data-c="kushxona" src="img/P-16.jpg" alt="Кушхона ва музлатгич мажмуаси" loading="lazy"></div>
+  <div class="hero-text">
+    <h1>Экинзордан тайёр гўштгача битта кластерда</h1>
+    <p class="lead">Тошкент вилоятида 427,56 гектарда барпо этиладиган интеграциялашган гўшт кластери: ўз озуқаси, Симментал зотли наслли подаси, замонавий кушхонаси ва 3 000 тонналик музлатгичи.</p>
+    <div class="tabs" role="tablist" aria-label="Мажмуани танланг"><button class="tab" role="tab" aria-selected="false" data-k="ekinzor" data-t="Саккизта 50 гектарлик дала, айланма суғориш, фермага ўз озуқаси."><span class="tn">Экинзор</span><span class="ta">400 гектар</span></button><button class="tab" role="tab" aria-selected="true" data-k="ferma" data-t="Симментал зотли 400 сигир, 600 ғунажин, 160 бузоқ ва 240 бўрдоқи."><span class="tn">Наслли ферма</span><span class="ta">15 гектар</span></button><button class="tab" role="tab" aria-selected="false" data-k="kushxona" data-t="Сменада 100 бош қорамол ва 300 бош қўй-эчки, 3 000 тонналик музлатгич."><span class="tn">Кушхона ва музлатгич</span><span class="ta">12,56 гектар</span></button></div>
+    <p class="tab-note" aria-live="polite">Симментал зотли 400 сигир, 600 ғунажин, 160 бузоқ ва 240 бўрдоқи.</p>
+  </div>
+</section>
+
+<section class="facts" aria-label="Асосий кўрсаткичлар">
+  <dl>
+    <div><dt>Ер майдони</dt><dd>427,56 га</dd></div>
+    <div><dt>Наслли пода</dt><dd>400 сигир</dd></div>
+    <div><dt>Гўшт ишлаб чиқариш</dt><dd>7 830 т/йил</dd></div>
+    <div><dt>Музлатгич</dt><dd>3 000 т</dd></div>
+    <div><dt>Томлардаги қуёш панеллари</dt><dd>≈ 4,0 МВт</dd></div>
+    <div><dt>Иш ўринлари</dt><dd>≈ 455</dd></div>
+  </dl>
+</section>
+
+<section id="klaster" class="sec">
+  <div class="sec-head"><h2>Кластер қандай ишлайди</h2>
+  <p>Экинзор ва ферма битта яхлит массивда жойлашган: озуқа ва гўнг ташиш масофаси қисқа. Кушхона ва музлатгич алоҳида, шаҳар яқинидаги саноат зонасида, фермадан камида 1 000 метр узоқликда — бу гўшт саноати ва биологик хавфсизлик талаби. Кушхона хомашёсининг асосий қисми фермерлар ва чорвачилик кластерларидан харид қилинади.</p></div>
+  <div class="flow-wrap">
+<svg class="flow" viewBox="0 0 960 520" role="img" aria-labelledby="flowT flowD">
+<title id="flowT">Кластернинг асосий юк оқимлари</title>
+<desc id="flowD">Экинзордан фермага озуқа, фермадан далаларга гўнг, фермадан кушхонага бўрдоқи ва брак сигирлар, фермерлардан кушхонага чорва, кушхонадан бозорга гўшт ва фермадан сут заводларига сут оқимлари.</desc>
+<defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="14" markerHeight="14" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="ah"/></marker></defs>
+<rect x="24" y="40" width="420" height="380" rx="18" class="zone"/>
+<text x="44" y="70" class="zl">1-майдон: битта яхлит массив, 415 га</text>
+<rect x="64" y="96" width="300" height="104" rx="12" class="node n1"/>
+<text x="84" y="138" class="nt">Экинзор</text><text x="84" y="168" class="ns">400 га, 8 та дала</text>
+<rect x="64" y="292" width="300" height="104" rx="12" class="node n2"/>
+<text x="84" y="334" class="nt">Наслли ферма</text><text x="84" y="364" class="ns">15 га, Симментал зоти</text>
+<path d="M130 204 L130 286" class="fl" marker-end="url(#ar)"/><text x="142" y="240" class="fv">озуқа</text><text x="142" y="258" class="fv">11 700 т/йил</text>
+<path d="M330 288 L330 206" class="fl dash" marker-end="url(#ar)"/><text x="342" y="240" class="fv">гўнг</text><text x="342" y="258" class="fv">15 000 т/йил</text>
+<rect x="596" y="250" width="320" height="120" rx="12" class="node n3"/>
+<text x="616" y="296" class="nt">Кушхона ва музлатгич</text><text x="616" y="328" class="ns">12,56 га, саноат зонаси</text>
+<path d="M368 344 L590 320" class="fl" marker-end="url(#ar)"/><text x="400" y="372" class="fv">бўрдоқи ва брак сигирлар 440 бош/йил</text>
+<text x="470" y="296" class="dist">камида 1 000 м</text>
+<rect x="596" y="40" width="320" height="96" rx="12" class="node ext"/>
+<text x="616" y="80" class="nt sm">Фермерлар ва кластерлар</text><text x="616" y="108" class="ns">хомашёнинг ≈ 98%</text>
+<path d="M756 140 L756 244" class="fl" marker-end="url(#ar)"/><text x="768" y="186" class="fv">26 600 қорамол</text><text x="768" y="208" class="fv">81 000 қўй-эчки</text>
+<rect x="596" y="440" width="320" height="64" rx="12" class="node ext"/>
+<text x="616" y="480" class="nt sm">Тошкент бозори ва экспорт</text>
+<path d="M756 374 L756 434" class="fl" marker-end="url(#ar)"/><text x="768" y="410" class="fv">гўшт 7 830 т/йил</text>
+<rect x="64" y="452" width="300" height="52" rx="12" class="node ext"/>
+<text x="84" y="485" class="nt sm">Сут заводлари</text>
+<path d="M214 400 L214 446" class="fl" marker-end="url(#ar)"/><text x="226" y="430" class="fv">сут 2 660 т/йил</text>
+</svg></div>
+</section>
+
+<section id="ekinzor" class="sec">
+  <div class="sec-head"><p class="step">1</p><h2>Экинзор, 400 гектар</h2>
+  <p>Экинзор саккизта 50 гектарлик далага бўлинган. Ҳар бир далада радиуси 345 метр бўлган айланма суғориш машинаси ишлайди; сув магистрал каналдан насос станцияси ва босимли қувур орқали берилади. Бу ерда фермага керакли асосий озуқа етиштирилади.</p></div>
+  <div class="cols">
+    <div>
+      <h3>Нега квадрат далада айланма машина</h3>
+      <ul class="pts">
+        <li>Машина марказдаги қўзғалмас таянч атрофида айланади: сув ва электр марказга ер остидан битта қувур ва кабел билан келади. Шунинг учун у айлана чизади — бу машинанинг ишлаш тамойили.</li>
+        <li>Айлана ҳар бир даланинг 37,4 гектарини (74,8%) суғоради. Бурчаклардаги 95,2 гектар кўп йиллик беда учун эгатлаб суғорилади.</li>
+        <li>Айланма машинада сув бериш самарадорлиги 75–90%, эгатлаб суғоришда 45–65%. Бир хил ҳосил учун қарийб 30% кам сув сарфланади, ҳисоб бўйича йилига ≈ 0,96 млн м³ сув тежалади.</li>
+        <li>Бир оператор саккизта машинани масофадан бошқаради, ўғит сув билан берилади, ерни лазер билан текислаш шарт эмас.</li>
+        <li>Сув тежовчи технологиялар давлат томонидан рағбатлантирилади, 2027 йилдан эса уларни қўлламаслик сув солиғини оширади.</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Экинлар таркиби</h3>
+      <table class="kv"><tbody><tr><th scope="row">Беда, пичан учун (4–5 ўрим)</th><td>140 га, 12 т/га</td></tr><tr><th scope="row">Маккажўхори силос учун</th><td>100 га, 45 т/га</td></tr><tr><th scope="row">Кузги арпа (дон ва сомон)</th><td>160 га, 5 + 3 т/га</td></tr><tr><th scope="row">Такрорий маккажўхори (арпадан кейин)</th><td>120 га, 35 т/га</td></tr><tr><th scope="row">Озуқа жами</th><td>≈ 11 700 т/йил</td></tr></tbody></table>
+      <p class="note">Батафсил асосланиш ва тўрт вариант таққослови — 13-варақда.</p>
+    </div>
+  </div>
+  <div class="grid"><figure class="ph big"><button class="ph-btn" data-i="0" aria-label="Саккизта дала: катта кўриниш"><img src="img/P-02.jpg" alt="Саккизта дала. Ҳар бирида айланма суғориш машинаси" loading="lazy" decoding="async"></button><figcaption><strong>Саккизта дала</strong><span>Ҳар бирида айланма суғориш машинаси</span></figcaption></figure><figure class="ph "><button class="ph-btn" data-i="1" aria-label="Айланма суғориш: катта кўриниш"><img src="img/P-03.jpg" alt="Айланма суғориш. Эгатлаб суғоришга нисбатан қарийб 30% кам сув" loading="lazy" decoding="async"></button><figcaption><strong>Айланма суғориш</strong><span>Эгатлаб суғоришга нисбатан қарийб 30% кам сув</span></figcaption></figure><figure class="ph "><button class="ph-btn" data-i="2" aria-label="Насос станцияси: катта кўриниш"><img src="img/P-04.jpg" alt="Насос станцияси. Магистрал каналдан босимли қувур орқали" loading="lazy" decoding="async"></button><figcaption><strong>Насос станцияси</strong><span>Магистрал каналдан босимли қувур орқали</span></figcaption></figure><figure class="ph "><button class="ph-btn" data-i="3" aria-label="Экинзор ва ферма: катта кўриниш"><img src="img/P-01.jpg" alt="Экинзор ва ферма. Битта яхлит массив, 415 гектар" loading="lazy" decoding="async"></button><figcaption><strong>Экинзор ва ферма</strong><span>Битта яхлит массив, 415 гектар</span></figcaption></figure></div>
+</section>
+
+<section id="ferma" class="sec">
+  <div class="sec-head"><p class="step">2</p><h2>Наслли ферма, 15 гектар</h2>
+  <p>Ферма экинзорнинг жанубий четида жойлашган. Бу ерда сут ва гўшт йўналишидаги Симментал зотли қорамол боқилади. Тоза оқим (озуқа, сут) ва ифлос оқим (гўнг) алоҳида дарвоза ва йўллардан юради, ходимлар фермага фақат санитария ўтказгичи орқали киради.</p></div>
+  <div class="cols">
+    <div>
+      <h3>Пода</h3>
+      <table class="kv"><tbody><tr><th scope="row">Сигирлар</th><td>400 (360 соғиладиган, 40 қуруқ)</td></tr><tr><th scope="row">Ғунажинлар</th><td>600 жой</td></tr><tr><th scope="row">Бузоқлар</th><td>160 жой</td></tr><tr><th scope="row">Бўрдоқи</th><td>240 жой, йилига ≈ 360 бош</td></tr><tr><th scope="row">Товар сут</th><td>≈ 7,3 т/сутка, ≈ 2 660 т/йил</td></tr><tr><th scope="row">Кушхонага</th><td>бўрдоқи ва брак сигирлар ≈ 440 бош/йил</td></tr></tbody></table>
+    </div>
+    <div>
+      <h3>Бинолар</h3>
+      <table class="kv"><tbody><tr><th scope="row">Сигирхоналар</th><td>2 та, 72 × 30 м, 200 боксдан</td></tr><tr><th scope="row">Соғиш зали</th><td>ташқи карусель, 40 жой, соатига 240–300 сигир</td></tr><tr><th scope="row">Сут хонаси</th><td>2 × 15 000 л, +4 °C гача совитиш</td></tr><tr><th scope="row">Ғунажинхоналар</th><td>2 та, 96 × 24 м, 300 жойдан</td></tr><tr><th scope="row">Бўрдоқи блоки</th><td>60 × 24 м, 240 жой</td></tr><tr><th scope="row">Бузоқхона</th><td>54 × 18 м, 160 жой</td></tr><tr><th scope="row">Озуқа зонаси</th><td>7 та силос траншеяси, пичан ва дон омбори</td></tr><tr><th scope="row">Гўнг</th><td>сепаратор ва 2 та ёпиқ лагуна, 180 кунлик захира</td></tr></tbody></table>
+    </div>
+  </div>
+  <div class="grid"><figure class="ph big"><button class="ph-btn" data-i="4" aria-label="Наслли ферма: катта кўриниш"><img src="img/P-05.jpg" alt="Наслли ферма. 15 гектар, Симментал зоти, томларда қуёш панеллари" loading="lazy" decoding="async"></button><figcaption><strong>Наслли ферма</strong><span>15 гектар, Симментал зоти, томларда қуёш панеллари</span></figcaption></figure><figure class="ph "><button class="ph-btn" data-i="5" aria-label="Сигирхоналар: катта кўриниш"><img src="img/P-08.jpg" alt="Сигирхоналар. 2 × 200 бокс, эркин сақлаш, жанубий нишабда панеллар" loading="lazy" decoding="async"></button><figcaption><strong>Сигирхоналар</strong><span>2 × 200 бокс, эркин сақлаш, жанубий нишабда панеллар</span></figcaption></figure><figure class="ph "><button class="ph-btn" data-i="6" aria-label="Соғиш зали ва сут блоки: катта кўриниш"><img src="img/P-26.jpg" alt="Соғиш зали ва сут блоки. Карусель устида ёруғлик фонари" loading="lazy" decoding="async"></button><figcaption><strong>Соғиш зали ва сут блоки</strong><span>Карусель устида ёруғлик фонари</span></figcaption></figure><figure class="ph "><button class="ph-btn" data-i="7" aria-label="Озуқа зонаси: катта кўриниш"><img src="img/P-06.jpg" alt="Озуқа зонаси. Силос траншеялари ва пичан омбори" loading="lazy" decoding="async"></button><figcaption><strong>Озуқа зонаси</strong><span>Силос траншеялари ва пичан омбори</span></figcaption></figure><figure class="ph "><button class="ph-btn" data-i="8" aria-label="Фермага кириш: катта кўриниш"><img src="img/P-07.jpg" alt="Фермага кириш. Назорат пункти ва дезинфекция тўсиғи" loading="lazy" decoding="async"></button><figcaption><strong>Фермага кириш</strong><span>Назорат пункти ва дезинфекция тўсиғи</span></figcaption></figure><figure class="ph "><button class="ph-btn" data-i="9" aria-label="Ғунажинлар сайр майдончаси: катта кўриниш"><img src="img/P-15.jpg" alt="Ғунажинлар сайр майдончаси. Симментал ғунажинлари" loading="lazy" decoding="async"></button><figcaption><strong>Ғунажинлар сайр майдончаси</strong><span>Симментал ғунажинлари</span></figcaption></figure><figure class="ph "><button class="ph-btn" data-i="10" aria-label="Сигирхона ичи: катта кўриниш"><img src="img/P-09.jpg" alt="Сигирхона ичи. Озуқа столи ва боксли дам олиш жойлари" loading="lazy" decoding="async"></button><figcaption><strong>Сигирхона ичи</strong><span>Озуқа столи ва боксли дам олиш жойлари</span></figcaption></figure><figure class="ph "><button class="ph-btn" data-i="11" aria-label="Карусель соғиш зали: катта кўриниш"><img src="img/P-10.jpg" alt="Карусель соғиш зали. 40 жой, соатига 300 тагача сигир" loading="lazy" decoding="async"></button><figcaption><strong>Карусель соғиш зали</strong><span>40 жой, соатига 300 тагача сигир</span></figcaption></figure><figure class="ph "><button class="ph-btn" data-i="12" aria-label="Сут хонаси: катта кўриниш"><img src="img/P-11.jpg" alt="Сут хонаси. 2 × 15 000 литр, +4 °C гача совитиш" loading="lazy" decoding="async"></button><figcaption><strong>Сут хонаси</strong><span>2 × 15 000 литр, +4 °C гача совитиш</span></figcaption></figure><figure class="ph "><button class="ph-btn" data-i="13" aria-label="Ғунажинхона: катта кўриниш"><img src="img/P-12.jpg" alt="Ғунажинхона. 600 жой, чуқур сомон тўшама" loading="lazy" decoding="async"></button><figcaption><strong>Ғунажинхона</strong><span>600 жой, чуқур сомон тўшама</span></figcaption></figure><figure class="ph "><button class="ph-btn" data-i="14" aria-label="Бўрдоқи блоки: катта кўриниш"><img src="img/P-13.jpg" alt="Бўрдоқи блоки. 240 жой, Симментал буқачалари" loading="lazy" decoding="async"></button><figcaption><strong>Бўрдоқи блоки</strong><span>240 жой, Симментал буқачалари</span></figcaption></figure><figure class="ph "><button class="ph-btn" data-i="15" aria-label="Бузоқхона: катта кўриниш"><img src="img/P-14.jpg" alt="Бузоқхона. 160 жой, индивидуал ва гуруҳ катаклари" loading="lazy" decoding="async"></button><figcaption><strong>Бузоқхона</strong><span>160 жой, индивидуал ва гуруҳ катаклари</span></figcaption></figure></div>
+</section>
+
+<section id="kushxona" class="sec">
+  <div class="sec-head"><p class="step">3</p><h2>Кушхона ва музлатгич, 12,56 гектар</h2>
+  <p>Мажмуа (400 × 314 м) шаҳар яқинидаги саноат зонасида, магистрал йўл бўйида. Чорва ғарбдан киради, тайёр маҳсулот эса ёпиқ галереялар орқали қайта ишлаш цехи ва музлатгичга ўтади: ифлос ва тоза оқимлар кесишмайди.</p></div>
+  <div class="cols">
+    <div>
+      <h3>Ишлаб чиқариш</h3>
+      <table class="kv"><tbody><tr><th scope="row">Кушхона</th><td>сменада 100 бош қорамол ва 300 бош қўй-эчки</td></tr><tr><th scope="row">Гўшт</th><td>8 700 т/йил (100%), барқарор йилда 7 830 т</td></tr><tr><th scope="row">Сўйиш</th><td>ҳалол талаблари асосида</td></tr><tr><th scope="row">Қайта ишлаш цехи</th><td>гўштнинг ≈ 35%: вакуум қадоқли бўлаклар, қийма, ярим тайёр маҳсулот</td></tr><tr><th scope="row">Хомашё</th><td>йилига ≈ 26 600 қорамол ва 81 000 қўй-эчки</td></tr></tbody></table>
+    </div>
+    <div>
+      <h3>Совитиш ва муҳандислик</h3>
+      <table class="kv"><tbody><tr><th scope="row">Музлатгич</th><td>3 000 т: совитилган 600, музлатилган 2 000, тайёр маҳсулот 400</td></tr><tr><th scope="row">Шок-музлатиш</th><td>40 т/сутка</td></tr><tr><th scope="row">Юклаш доклари</th><td>8 та</td></tr><tr><th scope="row">Совитиш тизими</th><td>аммиак ва CO₂ каскад, фреонсиз</td></tr><tr><th scope="row">Иссиқлик</th><td>компрессордан 60–70 °C иссиқ сув</td></tr><tr><th scope="row">Оқова сув</th><td>тозалаш иншооти ≈ 250 м³/сутка</td></tr></tbody></table>
+    </div>
+  </div>
+  <div class="grid"><figure class="ph big"><button class="ph-btn" data-i="16" aria-label="Кушхона ва музлатгич мажмуаси: катта кўриниш"><img src="img/P-16.jpg" alt="Кушхона ва музлатгич мажмуаси. 12,56 гектар, фермадан камида 1 километр узоқда" loading="lazy" decoding="async"></button><figcaption><strong>Кушхона ва музлатгич мажмуаси</strong><span>12,56 гектар, фермадан камида 1 километр узоқда</span></figcaption></figure><figure class="ph "><button class="ph-btn" data-i="17" aria-label="Кушхона ва қайта ишлаш цехи: катта кўриниш"><img src="img/P-27.jpg" alt="Кушхона ва қайта ишлаш цехи. Сменада 100 бош қорамол ва 300 бош қўй-эчки" loading="lazy" decoding="async"></button><figcaption><strong>Кушхона ва қайта ишлаш цехи</strong><span>Сменада 100 бош қорамол ва 300 бош қўй-эчки</span></figcaption></figure><figure class="ph "><button class="ph-btn" data-i="18" aria-label="Музлатгич: катта кўриниш"><img src="img/P-19.jpg" alt="Музлатгич. 3 000 тонна, 8 та юклаш доки" loading="lazy" decoding="async"></button><figcaption><strong>Музлатгич</strong><span>3 000 тонна, 8 та юклаш доки</span></figcaption></figure><figure class="ph "><button class="ph-btn" data-i="19" aria-label="Чорва қабул қилиш зонаси: катта кўриниш"><img src="img/P-17.jpg" alt="Чорва қабул қилиш зонаси. Ифлос ва тоза оқимлар кесишмайди" loading="lazy" decoding="async"></button><figcaption><strong>Чорва қабул қилиш зонаси</strong><span>Ифлос ва тоза оқимлар кесишмайди</span></figcaption></figure><figure class="ph "><button class="ph-btn" data-i="20" aria-label="Мажмуага кириш: катта кўриниш"><img src="img/P-18.jpg" alt="Мажмуага кириш. Икки қаватли маъмурий бино" loading="lazy" decoding="async"></button><figcaption><strong>Мажмуага кириш</strong><span>Икки қаватли маъмурий бино</span></figcaption></figure><figure class="ph "><button class="ph-btn" data-i="21" aria-label="Сўйиш линияси: катта кўриниш"><img src="img/P-20.jpg" alt="Сўйиш линияси. Ҳалол талаблари асосида" loading="lazy" decoding="async"></button><figcaption><strong>Сўйиш линияси</strong><span>Ҳалол талаблари асосида</span></figcaption></figure><figure class="ph "><button class="ph-btn" data-i="22" aria-label="Туша совитиш камераси: катта кўриниш"><img src="img/P-21.jpg" alt="Туша совитиш камераси. 0…+4 °C" loading="lazy" decoding="async"></button><figcaption><strong>Туша совитиш камераси</strong><span>0…+4 °C</span></figcaption></figure><figure class="ph "><button class="ph-btn" data-i="23" aria-label="Бўлаклаш ва қадоқлаш: катта кўриниш"><img src="img/P-22.jpg" alt="Бўлаклаш ва қадоқлаш. 16 иш ўрни, вакуум қадоқлаш" loading="lazy" decoding="async"></button><figcaption><strong>Бўлаклаш ва қадоқлаш</strong><span>16 иш ўрни, вакуум қадоқлаш</span></figcaption></figure><figure class="ph "><button class="ph-btn" data-i="24" aria-label="Музлатилган маҳсулот камераси: катта кўриниш"><img src="img/P-23.jpg" alt="Музлатилган маҳсулот камераси. −18…−25 °C, 5 қаватли стеллажлар" loading="lazy" decoding="async"></button><figcaption><strong>Музлатилган маҳсулот камераси</strong><span>−18…−25 °C, 5 қаватли стеллажлар</span></figcaption></figure><figure class="ph "><button class="ph-btn" data-i="25" aria-label="Совитиш машина зали: катта кўриниш"><img src="img/P-24.jpg" alt="Совитиш машина зали. Аммиак ва CO₂ каскад тизими, фреонсиз" loading="lazy" decoding="async"></button><figcaption><strong>Совитиш машина зали</strong><span>Аммиак ва CO₂ каскад тизими, фреонсиз</span></figcaption></figure><figure class="ph "><button class="ph-btn" data-i="26" aria-label="Мажмуа кечқурун: катта кўриниш"><img src="img/P-25.jpg" alt="Мажмуа кечқурун. Шаҳар яқинидаги саноат зонаси" loading="lazy" decoding="async"></button><figcaption><strong>Мажмуа кечқурун</strong><span>Шаҳар яқинидаги саноат зонаси</span></figcaption></figure></div>
+</section>
+
+<section id="quyosh" class="sec">
+  <div class="sec-head"><h2>Қуёш энергияси фақат томларда</h2>
+  <p>Қуёш панеллари бино томлари, навес ва автотураргоҳ соябонлари устига ўрнатилади; ерга ўрнатиладиган қуёш майдони йўқ. Икки нишабли томларда панеллар фақат жанубий нишабда, текис томларда шарқ–ғарб йўналишида 10° қияликда, баластли тизимда, томни тешмасдан жойлашади.</p></div>
+  <table class="kv wide"><tbody><tr><th scope="row">Ферма</th><td>14 та том, 1,67 МВт, йилига 2,39 ГВт·соат: фермага керагидан ≈ 4 баробар кўп, ортиқчаси тармоққа</td></tr><tr><th scope="row">Кушхона мажмуаси</th><td>11 та том, 2,33 МВт, йилига 3,23 ГВт·соат: истеъмолнинг ≈ 48%</td></tr><tr><th scope="row">Жами</th><td>≈ 4,0 МВт, йилига ≈ 5,6 ГВт·соат</td></tr></tbody></table>
+  <div class="grid two">
+    <figure class="ph"><button class="ph-btn" data-i="40"><img src="draw/S14.jpg" alt="14-варақ: ферма томлар режаси" loading="lazy"></button><figcaption><strong>14-варақ</strong><span>Ферма томлар режаси ва қуёш панеллари</span></figcaption></figure>
+    <figure class="ph"><button class="ph-btn" data-i="41"><img src="draw/S15.jpg" alt="15-варақ: кушхона томлар режаси" loading="lazy"></button><figcaption><strong>15-варақ</strong><span>Кушхона мажмуаси томлар режаси</span></figcaption></figure>
+  </div>
+</section>
+
+<section id="arxitektura" class="sec">
+  <div class="sec-head"><h2>Архитектура</h2>
+  <p>Ферма биноларида антрацит металл, термоишлов берилган қарағай ламеллари ва шаффоф ён шторалар; соғиш зали устида 18 × 18 метрлик ёруғлик фонари. Кушхона мажмуасида оқ сендвич панеллар, антрацит пилястр ва парапет, тўқ яшил чизиқ, ходимлар киришида ёғоч ва витраж. Фасадлар 16–19-варақларда.</p></div>
+  <div class="grid two">
+    <figure class="ph"><button class="ph-btn" data-i="42"><img src="draw/S16.jpg" alt="16-варақ" loading="lazy"></button><figcaption><strong>16-варақ</strong><span>Ферма фасадлари: сигирхона, ғунажинхона, бўрдоқи блоки</span></figcaption></figure><figure class="ph"><button class="ph-btn" data-i="43"><img src="draw/S17.jpg" alt="17-варақ" loading="lazy"></button><figcaption><strong>17-варақ</strong><span>Ферма фасадлари: соғиш зали, маъмурий бино</span></figcaption></figure><figure class="ph"><button class="ph-btn" data-i="44"><img src="draw/S18.jpg" alt="18-варақ" loading="lazy"></button><figcaption><strong>18-варақ</strong><span>Кушхона ва қайта ишлаш цехи фасадлари</span></figcaption></figure><figure class="ph"><button class="ph-btn" data-i="45"><img src="draw/S19.jpg" alt="19-варақ" loading="lazy"></button><figcaption><strong>19-варақ</strong><span>Музлатгич ва маъмурий бино фасадлари</span></figcaption></figure>
+  </div>
+</section>
+
+<section id="korsatkichlar" class="sec">
+  <div class="sec-head"><h2>Техник-иқтисодий кўрсаткичлар</h2>
+  <p>Бизнес режа (асосий вариант) ва чизмалар асосида, 12-варақ. Инвестиция қайтарилмайдиган маблағ деб олинган, ер нархи ҳисобга олинмаган.</p></div>
+  <div class="cols three">
+    <div><h3>Ер баланси</h3><table class="kv"><tbody><tr><th scope="row">Экинзор (8 та дала)</th><td>400,00 га, 93,6%</td></tr><tr><th scope="row">Ферма</th><td>15,00 га, 3,5%</td></tr><tr><th scope="row">Кушхона ва музлатгич</th><td>12,56 га, 2,9%</td></tr><tr><th scope="row">Жами</th><td>427,56 га</td></tr></tbody></table></div>
+    <div><h3>Иқтисодий кўрсаткичлар</h3><table class="kv"><tbody><tr><th scope="row">Капитал харажатлар</th><td>29,8 млн $</td></tr><tr><th scope="row">Бошланғич айланма маблағ</th><td>3,1 млн $</td></tr><tr><th scope="row">Умумий инвестиция</th><td>32,9 млн $</td></tr><tr><th scope="row">Тушум, барқарор йил</th><td>73,1 млн $</td></tr><tr><th scope="row">EBITDA</th><td>7,56 млн $</td></tr><tr><th scope="row">Соф фойда</th><td>4,53 млн $</td></tr><tr><th scope="row">Лойиҳа IRR</th><td>14,4%</td></tr><tr><th scope="row">NPV (12%)</th><td>+5,0 млн $</td></tr><tr><th scope="row">Қопланиш</th><td>≈ 6,1 йил</td></tr><tr><th scope="row">Қурилиш муддати</th><td>≈ 24 ой</td></tr></tbody></table></div>
+    <div><h3>Инвестиция таркиби</h3><table class="kv"><tbody><tr><th scope="row">Экинзор (400 га)</th><td>3,75 млн $</td></tr><tr><th scope="row">Ферма, пода билан</th><td>7,35 млн $</td></tr><tr><th scope="row">Кушхона ва музлатгич</th><td>16,50 млн $</td></tr><tr><th scope="row">Лойиҳалаш, экспертиза (3%)</th><td>0,83 млн $</td></tr><tr><th scope="row">Кутилмаган харажатлар (5%)</th><td>1,38 млн $</td></tr><tr><th scope="row">Айланма маблағ</th><td>3,12 млн $</td></tr><tr><th scope="row">Жами</th><td>32,92 млн $</td></tr></tbody></table>
+    <p class="note">Томлардаги қуёш панеллари кенгайтмаси (+2,67 МВт, тахминан 1,8–2,7 млн $) ушбу жадвалга ҳали киритилмаган.</p></div>
+  </div>
+</section>
+
+<section id="chizmalar" class="sec">
+  <div class="sec-head"><h2>Чизмалар, 19 варақ</h2>
+  <p>ТЭО олди (концептуал) босқичи, A1 формат: бош режалар, бинолар режалари ва кесимлари, суғориш асосланиши, томлар режаси, фасадлар ва техник-иқтисодий кўрсаткичлар. Варақни босинг — катта кўринишда очилади.</p>
+  <p><a class="btn" href="pdf/00_chizmalar_toplami_A1.pdf" download>Барча варақлар, PDF альбом</a></p></div>
+  <ol class="sheets"><li><button class="sh-btn" data-i="27"><img src="draw/S01.jpg" alt="Умумий маълумотлар. Варақлар рўйхати" loading="lazy" decoding="async"><span class="sn">1</span><span class="st">Умумий маълумотлар. Варақлар рўйхати</span></button><a class="pdf" href="pdf/01_Umumiy_malumotlar.pdf" download aria-label="1-варақ PDF">PDF</a></li><li><button class="sh-btn" data-i="28"><img src="draw/S02.jpg" alt="Кластернинг жойлашув схемаси ва асосий оқимлар" loading="lazy" decoding="async"><span class="sn">2</span><span class="st">Кластернинг жойлашув схемаси ва асосий оқимлар</span></button><a class="pdf" href="pdf/02_Klaster_joylashuv_sxemasi.pdf" download aria-label="2-варақ PDF">PDF</a></li><li><button class="sh-btn" data-i="29"><img src="draw/S03.jpg" alt="1-майдон бош режаси: экин майдони ва ферма" loading="lazy" decoding="async"><span class="sn">3</span><span class="st">1-майдон бош режаси: экин майдони ва ферма</span></button><a class="pdf" href="pdf/03_1-maydon_bosh_reja.pdf" download aria-label="3-варақ PDF">PDF</a></li><li><button class="sh-btn" data-i="30"><img src="draw/S04.jpg" alt="Ферма бош режаси" loading="lazy" decoding="async"><span class="sn">4</span><span class="st">Ферма бош режаси</span></button><a class="pdf" href="pdf/04_Ferma_bosh_reja.pdf" download aria-label="4-варақ PDF">PDF</a></li><li><button class="sh-btn" data-i="31"><img src="draw/S05.jpg" alt="Сигирхона (200 бокс). Режа ва кесим" loading="lazy" decoding="async"><span class="sn">5</span><span class="st">Сигирхона (200 бокс). Режа ва кесим</span></button><a class="pdf" href="pdf/05_Sigirxona.pdf" download aria-label="5-варақ PDF">PDF</a></li><li><button class="sh-btn" data-i="32"><img src="draw/S06.jpg" alt="Соғиш зали (карусель, 40 жой) ва сут блоки" loading="lazy" decoding="async"><span class="sn">6</span><span class="st">Соғиш зали (карусель, 40 жой) ва сут блоки</span></button><a class="pdf" href="pdf/06_Sogish_zali.pdf" download aria-label="6-варақ PDF">PDF</a></li><li><button class="sh-btn" data-i="33"><img src="draw/S07.jpg" alt="Ғунажинхона, бўрдоқи блоки, бузоқхона" loading="lazy" decoding="async"><span class="sn">7</span><span class="st">Ғунажинхона, бўрдоқи блоки, бузоқхона</span></button><a class="pdf" href="pdf/07_Yosh_mollar_binolari.pdf" download aria-label="7-варақ PDF">PDF</a></li><li><button class="sh-btn" data-i="34"><img src="draw/S08.jpg" alt="2-майдон бош режаси: кушхона ва музлатгич" loading="lazy" decoding="async"><span class="sn">8</span><span class="st">2-майдон бош режаси: кушхона ва музлатгич</span></button><a class="pdf" href="pdf/08_Qushxona_bosh_reja.pdf" download aria-label="8-варақ PDF">PDF</a></li><li><button class="sh-btn" data-i="35"><img src="draw/S09.jpg" alt="Кушхона биноси. Режа ва технологик оқим" loading="lazy" decoding="async"><span class="sn">9</span><span class="st">Кушхона биноси. Режа ва технологик оқим</span></button><a class="pdf" href="pdf/09_Qushxona_binosi.pdf" download aria-label="9-варақ PDF">PDF</a></li><li><button class="sh-btn" data-i="36"><img src="draw/S10.jpg" alt="Музлатгич (3 000 т). Режа ва кесим" loading="lazy" decoding="async"><span class="sn">10</span><span class="st">Музлатгич (3 000 т). Режа ва кесим</span></button><a class="pdf" href="pdf/10_Muzlatgich.pdf" download aria-label="10-варақ PDF">PDF</a></li><li><button class="sh-btn" data-i="37"><img src="draw/S11.jpg" alt="Қайта ишлаш цехи. Режа ва жиҳозлар" loading="lazy" decoding="async"><span class="sn">11</span><span class="st">Қайта ишлаш цехи. Режа ва жиҳозлар</span></button><a class="pdf" href="pdf/11_Qayta_ishlash_sexi.pdf" download aria-label="11-варақ PDF">PDF</a></li><li><button class="sh-btn" data-i="38"><img src="draw/S12.jpg" alt="Техник-иқтисодий кўрсаткичлар" loading="lazy" decoding="async"><span class="sn">12</span><span class="st">Техник-иқтисодий кўрсаткичлар</span></button><a class="pdf" href="pdf/12_Texnik-iqtisodiy_korsatkichlar.pdf" download aria-label="12-варақ PDF">PDF</a></li><li><button class="sh-btn" data-i="39"><img src="draw/S13.jpg" alt="Суғориш тизими асосланиши" loading="lazy" decoding="async"><span class="sn">13</span><span class="st">Суғориш тизими асосланиши</span></button><a class="pdf" href="pdf/13_Sugorish_tizimi_asoslanishi.pdf" download aria-label="13-варақ PDF">PDF</a></li><li><button class="sh-btn" data-i="40"><img src="draw/S14.jpg" alt="Ферма томлар режаси ва қуёш панеллари" loading="lazy" decoding="async"><span class="sn">14</span><span class="st">Ферма томлар режаси ва қуёш панеллари</span></button><a class="pdf" href="pdf/14_Ferma_tomlar_rejasi_quyosh_panellari.pdf" download aria-label="14-варақ PDF">PDF</a></li><li><button class="sh-btn" data-i="41"><img src="draw/S15.jpg" alt="Кушхона мажмуаси томлар режаси ва қуёш панеллари" loading="lazy" decoding="async"><span class="sn">15</span><span class="st">Кушхона мажмуаси томлар режаси ва қуёш панеллари</span></button><a class="pdf" href="pdf/15_Qushxona_tomlar_rejasi_quyosh_panellari.pdf" download aria-label="15-варақ PDF">PDF</a></li><li><button class="sh-btn" data-i="42"><img src="draw/S16.jpg" alt="Ферма фасадлари: сигирхона, ғунажинхона, бўрдоқи блоки" loading="lazy" decoding="async"><span class="sn">16</span><span class="st">Ферма фасадлари: сигирхона, ғунажинхона, бўрдоқи блоки</span></button><a class="pdf" href="pdf/16_Ferma_fasadlari_sigirxona_gunajinxona.pdf" download aria-label="16-варақ PDF">PDF</a></li><li><button class="sh-btn" data-i="43"><img src="draw/S17.jpg" alt="Ферма фасадлари: соғиш зали, маъмурий бино" loading="lazy" decoding="async"><span class="sn">17</span><span class="st">Ферма фасадлари: соғиш зали, маъмурий бино</span></button><a class="pdf" href="pdf/17_Ferma_fasadlari_sogish_zali_mamuriy.pdf" download aria-label="17-варақ PDF">PDF</a></li><li><button class="sh-btn" data-i="44"><img src="draw/S18.jpg" alt="Кушхона ва қайта ишлаш цехи фасадлари" loading="lazy" decoding="async"><span class="sn">18</span><span class="st">Кушхона ва қайта ишлаш цехи фасадлари</span></button><a class="pdf" href="pdf/18_Qushxona_qayta_ishlash_fasadlari.pdf" download aria-label="18-варақ PDF">PDF</a></li><li><button class="sh-btn" data-i="45"><img src="draw/S19.jpg" alt="Музлатгич ва маъмурий бино фасадлари" loading="lazy" decoding="async"><span class="sn">19</span><span class="st">Музлатгич ва маъмурий бино фасадлари</span></button><a class="pdf" href="pdf/19_Muzlatgich_mamuriy_bino_fasadlari.pdf" download aria-label="19-варақ PDF">PDF</a></li></ol>
+</section>
+
+<section id="video" class="sec">
+  <div class="sec-head"><h2>Видео</h2><p>Учта мажмуа бўйлаб 2 дақиқалик саёҳат.</p></div>
+  <div class="vid"><video controls preload="none" playsinline poster="video/poster.jpg" src="video/klaster.mp4"></video></div>
+</section>
+</main>
+
+<footer class="foot">
+  <p><strong>Toshkent Meat Solutions</strong>, Тошкент вилояти, 2026.</p>
+  <p>Ҳужжат ТЭО олди (концептуал) даражасида тайёрланган. Саҳифадаги суратлар ва видео лойиҳа концепциясини кўрсатиш учун сунъий интеллект ёрдамида яратилган ва ҳақиқий объектни акс эттирмайди.</p>
+</footer>
+
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Катта кўриниш" hidden>
+  <button class="lb-x" aria-label="Ёпиш">×</button>
+  <button class="lb-p" aria-label="Олдинги">‹</button>
+  <figure><img id="lbImg" alt=""><figcaption><strong id="lbT"></strong><span id="lbD"></span></figcaption></figure>
+  <button class="lb-n" aria-label="Кейинги">›</button>
+</div>
+<script>window.ITEMS=[{"k": "P-02", "u": "img/P-02.jpg", "t": "Саккизта дала", "d": "Ҳар бирида айланма суғориш машинаси"}, {"k": "P-03", "u": "img/P-03.jpg", "t": "Айланма суғориш", "d": "Эгатлаб суғоришга нисбатан қарийб 30% кам сув"}, {"k": "P-04", "u": "img/P-04.jpg", "t": "Насос станцияси", "d": "Магистрал каналдан босимли қувур орқали"}, {"k": "P-01", "u": "img/P-01.jpg", "t": "Экинзор ва ферма", "d": "Битта яхлит массив, 415 гектар"}, {"k": "P-05", "u": "img/P-05.jpg", "t": "Наслли ферма", "d": "15 гектар, Симментал зоти, томларда қуёш панеллари"}, {"k": "P-08", "u": "img/P-08.jpg", "t": "Сигирхоналар", "d": "2 × 200 бокс, эркин сақлаш, жанубий нишабда панеллар"}, {"k": "P-26", "u": "img/P-26.jpg", "t": "Соғиш зали ва сут блоки", "d": "Карусель устида ёруғлик фонари"}, {"k": "P-06", "u": "img/P-06.jpg", "t": "Озуқа зонаси", "d": "Силос траншеялари ва пичан омбори"}, {"k": "P-07", "u": "img/P-07.jpg", "t": "Фермага кириш", "d": "Назорат пункти ва дезинфекция тўсиғи"}, {"k": "P-15", "u": "img/P-15.jpg", "t": "Ғунажинлар сайр майдончаси", "d": "Симментал ғунажинлари"}, {"k": "P-09", "u": "img/P-09.jpg", "t": "Сигирхона ичи", "d": "Озуқа столи ва боксли дам олиш жойлари"}, {"k": "P-10", "u": "img/P-10.jpg", "t": "Карусель соғиш зали", "d": "40 жой, соатига 300 тагача сигир"}, {"k": "P-11", "u": "img/P-11.jpg", "t": "Сут хонаси", "d": "2 × 15 000 литр, +4 °C гача совитиш"}, {"k": "P-12", "u": "img/P-12.jpg", "t": "Ғунажинхона", "d": "600 жой, чуқур сомон тўшама"}, {"k": "P-13", "u": "img/P-13.jpg", "t": "Бўрдоқи блоки", "d": "240 жой, Симментал буқачалари"}, {"k": "P-14", "u": "img/P-14.jpg", "t": "Бузоқхона", "d": "160 жой, индивидуал ва гуруҳ катаклари"}, {"k": "P-16", "u": "img/P-16.jpg", "t": "Кушхона ва музлатгич мажмуаси", "d": "12,56 гектар, фермадан камида 1 километр узоқда"}, {"k": "P-27", "u": "img/P-27.jpg", "t": "Кушхона ва қайта ишлаш цехи", "d": "Сменада 100 бош қорамол ва 300 бош қўй-эчки"}, {"k": "P-19", "u": "img/P-19.jpg", "t": "Музлатгич", "d": "3 000 тонна, 8 та юклаш доки"}, {"k": "P-17", "u": "img/P-17.jpg", "t": "Чорва қабул қилиш зонаси", "d": "Ифлос ва тоза оқимлар кесишмайди"}, {"k": "P-18", "u": "img/P-18.jpg", "t": "Мажмуага кириш", "d": "Икки қаватли маъмурий бино"}, {"k": "P-20", "u": "img/P-20.jpg", "t": "Сўйиш линияси", "d": "Ҳалол талаблари асосида"}, {"k": "P-21", "u": "img/P-21.jpg", "t": "Туша совитиш камераси", "d": "0…+4 °C"}, {"k": "P-22", "u": "img/P-22.jpg", "t": "Бўлаклаш ва қадоқлаш", "d": "16 иш ўрни, вакуум қадоқлаш"}, {"k": "P-23", "u": "img/P-23.jpg", "t": "Музлатилган маҳсулот камераси", "d": "−18…−25 °C, 5 қаватли стеллажлар"}, {"k": "P-24", "u": "img/P-24.jpg", "t": "Совитиш машина зали", "d": "Аммиак ва CO₂ каскад тизими, фреонсиз"}, {"k": "P-25", "u": "img/P-25.jpg", "t": "Мажмуа кечқурун", "d": "Шаҳар яқинидаги саноат зонаси"}, {"k": "S01", "u": "draw/S01.jpg", "t": "1-варақ", "d": "Умумий маълумотлар. Варақлар рўйхати"}, {"k": "S02", "u": "draw/S02.jpg", "t": "2-варақ", "d": "Кластернинг жойлашув схемаси ва асосий оқимлар"}, {"k": "S03", "u": "draw/S03.jpg", "t": "3-варақ", "d": "1-майдон бош режаси: экин майдони ва ферма"}, {"k": "S04", "u": "draw/S04.jpg", "t": "4-варақ", "d": "Ферма бош режаси"}, {"k": "S05", "u": "draw/S05.jpg", "t": "5-варақ", "d": "Сигирхона (200 бокс). Режа ва кесим"}, {"k": "S06", "u": "draw/S06.jpg", "t": "6-варақ", "d": "Соғиш зали (карусель, 40 жой) ва сут блоки"}, {"k": "S07", "u": "draw/S07.jpg", "t": "7-варақ", "d": "Ғунажинхона, бўрдоқи блоки, бузоқхона"}, {"k": "S08", "u": "draw/S08.jpg", "t": "8-варақ", "d": "2-майдон бош режаси: кушхона ва музлатгич"}, {"k": "S09", "u": "draw/S09.jpg", "t": "9-варақ", "d": "Кушхона биноси. Режа ва технологик оқим"}, {"k": "S10", "u": "draw/S10.jpg", "t": "10-варақ", "d": "Музлатгич (3 000 т). Режа ва кесим"}, {"k": "S11", "u": "draw/S11.jpg", "t": "11-варақ", "d": "Қайта ишлаш цехи. Режа ва жиҳозлар"}, {"k": "S12", "u": "draw/S12.jpg", "t": "12-варақ", "d": "Техник-иқтисодий кўрсаткичлар"}, {"k": "S13", "u": "draw/S13.jpg", "t": "13-варақ", "d": "Суғориш тизими асосланиши"}, {"k": "S14", "u": "draw/S14.jpg", "t": "14-варақ", "d": "Ферма томлар режаси ва қуёш панеллари"}, {"k": "S15", "u": "draw/S15.jpg", "t": "15-варақ", "d": "Кушхона мажмуаси томлар режаси ва қуёш панеллари"}, {"k": "S16", "u": "draw/S16.jpg", "t": "16-варақ", "d": "Ферма фасадлари: сигирхона, ғунажинхона, бўрдоқи блоки"}, {"k": "S17", "u": "draw/S17.jpg", "t": "17-варақ", "d": "Ферма фасадлари: соғиш зали, маъмурий бино"}, {"k": "S18", "u": "draw/S18.jpg", "t": "18-варақ", "d": "Кушхона ва қайта ишлаш цехи фасадлари"}, {"k": "S19", "u": "draw/S19.jpg", "t": "19-варақ", "d": "Музлатгич ва маъмурий бино фасадлари"}];window.IMG=null;(function () {
+  var IMG = window.IMG, ITEMS = window.ITEMS || [];
+  function srcOf(k, u) { return IMG ? IMG[k] : u; }
+
+  // inline image registry (hosted version): fill images when they come near the viewport
+  if (IMG) {
+    var lazy = Array.prototype.slice.call(document.querySelectorAll("img[data-k]"));
+    var fill = function (im) { if (IMG[im.dataset.k] && im.dataset.done !== "1") { im.src = IMG[im.dataset.k]; im.dataset.done = "1"; } };
+    lazy.filter(function (im) { return im.closest(".hero") || im.classList.contains("hero-img"); }).forEach(fill);
+    if ("IntersectionObserver" in window) {
+      var io = new IntersectionObserver(function (es) {
+        es.forEach(function (e) { if (e.isIntersecting) { fill(e.target); io.unobserve(e.target); } });
+      }, { rootMargin: "600px 0px" });
+      lazy.forEach(function (im) { if (im.dataset.done !== "1") io.observe(im); });
+    } else { lazy.forEach(fill); }
+  }
+
+  // hero switcher
+  var tabs = document.querySelectorAll(".tab"), imgs = document.querySelectorAll(".hero-img"), note = document.querySelector(".tab-note");
+  function pick(k) {
+    tabs.forEach(function (t) { t.setAttribute("aria-selected", t.dataset.k === k ? "true" : "false"); if (t.dataset.k === k) note.textContent = t.dataset.t; });
+    imgs.forEach(function (im) { im.classList.remove("on"); });
+    var idx = Array.prototype.findIndex.call(tabs, function (t) { return t.dataset.k === k; });
+    if (imgs[idx]) imgs[idx].classList.add("on");
+  }
+  tabs.forEach(function (t, i) {
+    t.addEventListener("click", function () { pick(t.dataset.k); });
+    t.addEventListener("keydown", function (e) {
+      if (e.key === "ArrowRight" || e.key === "ArrowLeft") {
+        var j = (i + (e.key === "ArrowRight" ? 1 : tabs.length - 1)) % tabs.length; tabs[j].focus(); pick(tabs[j].dataset.k);
+      }
+    });
+  });
+
+  // lightbox
+  var lb = document.getElementById("lb"), lbImg = document.getElementById("lbImg"), lbT = document.getElementById("lbT"), lbD = document.getElementById("lbD"), cur = 0, last = null;
+  function show(i) {
+    cur = (i + ITEMS.length) % ITEMS.length; var it = ITEMS[cur];
+    lbImg.src = srcOf(it.k, it.u); lbImg.alt = it.t + ". " + it.d; lbT.textContent = it.t; lbD.textContent = it.d;
+  }
+  function open(i, from) { last = from; show(i); lb.hidden = false; document.body.style.overflow = "hidden"; lb.querySelector(".lb-x").focus(); }
+  function close() { lb.hidden = true; document.body.style.overflow = ""; if (last) last.focus(); }
+  document.addEventListener("click", function (e) {
+    var b = e.target.closest("[data-i]"); if (b && !b.classList.contains("tab")) { e.preventDefault(); open(+b.dataset.i, b); }
+  });
+  lb.querySelector(".lb-x").addEventListener("click", close);
+  lb.querySelector(".lb-p").addEventListener("click", function () { show(cur - 1); });
+  lb.querySelector(".lb-n").addEventListener("click", function () { show(cur + 1); });
+  lb.addEventListener("click", function (e) { if (e.target === lb) close(); });
+  document.addEventListener("keydown", function (e) {
+    if (lb.hidden) return;
+    if (e.key === "Escape") close(); else if (e.key === "ArrowRight") show(cur + 1); else if (e.key === "ArrowLeft") show(cur - 1);
+  });
+
+  // active section in nav
+  var links = Array.prototype.slice.call(document.querySelectorAll(".top nav a"));
+  var map = {}; links.forEach(function (a) { map[a.getAttribute("href").slice(1)] = a; });
+  if ("IntersectionObserver" in window) {
+    var so = new IntersectionObserver(function (es) {
+      es.forEach(function (e) {
+        if (e.isIntersecting && map[e.target.id]) {
+          links.forEach(function (a) { a.classList.remove("on"); }); map[e.target.id].classList.add("on");
+          var a = map[e.target.id]; if (a.scrollIntoView && a.parentElement) { var nav = a.closest("nav"); nav.scrollLeft = a.offsetLeft - 40; }
+        }
+      });
+    }, { rootMargin: "-45% 0px -50% 0px" });
+    document.querySelectorAll("main section[id]").forEach(function (s) { so.observe(s); });
+  }
+})();
+</script>
+</body>
+</html>

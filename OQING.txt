@@ -1,0 +1,14 @@
+Toshkent Meat Solutions — sayt (kirill yozuvi)
+
+Tarkibi:
+  index.html   — sayt (bitta sahifa)
+  img/         — 27 ta real rasm
+  draw/        — 19 ta chizma varagʻi (koʻrish uchun)
+  pdf/         — 19 ta varaq PDF va albom (00_chizmalar_toplami_A1.pdf)
+  video/       — klaster.mp4 (1080p) va poster.jpg
+
+Vercel'ga joylash:
+  1) vercel.com → Add New → Project → papkani yuklang (yoki GitHub repoga qoʻyib ulang).
+     Framework: "Other", Build command: boʻsh, Output directory: ./ (ildiz).
+  2) Yoki terminalda:  npx vercel --prod   (shu papka ichida)
+  Hozirgi kushxona.vercel.app oʻrniga qoʻysangiz, eski sahifa almashadi.
