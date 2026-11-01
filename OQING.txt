@@ -1,14 +1,20 @@
-Toshkent Meat Solutions — sayt (kirill yozuvi)
+Meat Solutions — sayt (kirill yozuvi), meatsolutiondd.vercel.app uchun
 
 Tarkibi:
-  index.html   — sayt (bitta sahifa)
-  img/         — 27 ta real rasm
-  draw/        — 19 ta chizma varagʻi (koʻrish uchun)
-  pdf/         — 19 ta varaq PDF va albom (00_chizmalar_toplami_A1.pdf)
-  video/       — klaster.mp4 (1080p) va poster.jpg
+  index.html    — sayt (bitta sahifa, 11 boʻlim)
+  img/          — 37 ta real rasm (2200 px)
+  plans/        — 4 ta taqdimot bosh rejasi (JPG va PDF)
+  draw/         — 21 ta chizma varagʻi (koʻrish uchun)
+  pdf/          — 21 ta varaq PDF va albom (00_chizmalar_toplami_A1.pdf)
+  vercel.json   — Vercel sozlamalari (kesh)
 
-Vercel'ga joylash:
-  1) vercel.com → Add New → Project → papkani yuklang (yoki GitHub repoga qoʻyib ulang).
-     Framework: "Other", Build command: boʻsh, Output directory: ./ (ildiz).
-  2) Yoki terminalda:  npx vercel --prod   (shu papka ichida)
-  Hozirgi kushxona.vercel.app oʻrniga qoʻysangiz, eski sahifa almashadi.
+Vercel'ga joylash (meatsolutiondd loyihasi):
+  1-usul (brauzer): vercel.com → meatsolutiondd loyihasi → Deployments → shu papkani
+         sudrab tashlang (yoki Settings → Git orqali repoga qoʻyib ulang).
+         Framework Preset: Other; Build Command: boʻsh; Output Directory: ./
+  2-usul (terminal): shu papka ichida
+         npx vercel link        (meatsolutiondd loyihasini tanlang)
+         npx vercel --prod
+
+Eslatma: P-08, P-16, P-17, P-42 rasmlari matn chiqib qolgani uchun hozircha saytga qoʻyilmagan.
+Tuzatilgan rasmlar va jonli video tayyor boʻlgach, ular saytga qoʻshiladi.
