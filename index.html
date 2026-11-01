@@ -3,6 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light only">
+<meta name="theme-color" content="#eef0ec">
 <title>Meat Solutions — интеграциялашган гўшт кластери</title>
 <meta name="description" content="Тошкент вилоятида 431,56 гектарда: экинзор, Симментал зотли наслли ферма, кушхона ва 3 000 тонналик музлатгич. Чизмалар, суратлар ва видео.">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -11,22 +13,10 @@
   --paper:#eef0ec; --surface:#ffffff; --ink:#23292c; --muted:#56605b; --line:#cfd5ce;
   --field:#2f5d46; --field-ink:#ffffff; --wheat:#b88a2c; --wheat-soft:#e9d7a6; --wood:#a86f3e;
   --shade:rgba(20,26,24,.72); --zone:#e3e9e1;
-  color-scheme:light;
+  color-scheme:only light;
   box-sizing:border-box;
   padding-top:env(safe-area-inset-top,0px);
   padding-bottom:env(safe-area-inset-bottom,0px);
-}
-@media (prefers-color-scheme:dark){
-  :root:not([data-theme="light"]){
-    --paper:#141a18; --surface:#1b2320; --ink:#e4e8e3; --muted:#a2ada7; --line:#2d3833;
-    --field:#78b494; --field-ink:#0f1513; --wheat:#dcb969; --wheat-soft:#3a3322; --wood:#c68d5a;
-    --shade:rgba(8,12,10,.78); --zone:#1f2925; color-scheme:dark;
-  }
-}
-:root[data-theme="dark"]{
-  --paper:#141a18; --surface:#1b2320; --ink:#e4e8e3; --muted:#a2ada7; --line:#2d3833;
-  --field:#78b494; --field-ink:#0f1513; --wheat:#dcb969; --wheat-soft:#3a3322; --wood:#c68d5a;
-  --shade:rgba(8,12,10,.78); --zone:#1f2925; color-scheme:dark;
 }
 *,*::before,*::after{box-sizing:inherit}
 html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 72px);scroll-behavior:smooth}
